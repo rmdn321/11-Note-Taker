@@ -1,4 +1,4 @@
-# Module 6 Challenge - Weather App
+# Module 11 Challenge - Note Taker
 
 ## Table of contents
 
@@ -16,42 +16,45 @@
 
 ### The challenge
 
-Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+Your challenge is to create an application called Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file.
 
-Use the OpenWeather One Call API to retrieve weather data for cities. Read through the documentation for setup and usage instructions. You will use localStorage to store any persistent data.
+The application’s front end has already been created. It's your job to build the back end, connect the two, and then deploy the entire application to Heroku.
 
 ### User Story
 
 ```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
+AS A small business owner
+I WANT to be able to write and save notes
+SO THAT I can organize my thoughts and keep track of tasks I need to complete
+
 ```
 
 ### Acceptance Criteria
 
 ```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
+GIVEN a note-taking application
+WHEN I open the Note Taker
+THEN I am presented with a landing page with a link to a notes page
+WHEN I click on the link to the notes page
+THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
+WHEN I enter a new note title and the note’s text
+THEN a Save icon appears in the navigation at the top of the page
+WHEN I click on the Save icon
+THEN the new note I have entered is saved and appears in the left-hand column with the other existing notes
+WHEN I click on an existing note in the list in the left-hand column
+THEN that note appears in the right-hand column
+WHEN I click on the Write icon in the navigation at the top of the page
+THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 
 ```
 
 ### Video
-![GIF](./assets/css/Weather%20App%20GIF.gif)
+[Demo Video]()
 
 ### Links
 
-- [Github Repository](https://github.com/rmdn321/6-Weather-App)
-- [Github Pages URL](https://rmdn321.github.io/6-Weather-App/)
+- [Github Repository](https://github.com/rmdn321/11-Note-Taker)
+- [Heroku Link]()
 
 ## My process
 
@@ -60,36 +63,19 @@ THEN I am again presented with current and future conditions for that city
 - HTML
 - CSS
 - Javascript
-- JQuery
-- Bootstrap
-- Moment.js
+- Node.js
+- Express.js
 
 ### What I learnt
 
-- Explain what JSON is.
+- Configure an Express.js app to handle GET and POST requests.
 
-- Explain the methods that can be used to request data from the server.
+- Configure an Express.js app to serve static files.
 
-- Explain the difference between a client-side and server-side API.
+- Identify how client-side requests relate to server-side responses.
 
-- Explain the client-server model and request-response pattern.
+- Parse optional and required parameters when creating server-side routes.
 
-- Implement and explain the differences between making HTTP GET requests with XMLHttpRequest, jQuery AJAX, and the Fetch API.
+- Implement client-side POST requests to submit form data to a server.
 
-- Explain HTTP response codes and handle response metadata with the Fetch API.
-
-- Parse JSON to dynamically generate HTML.
-
-- Explain the benefits and challenges of working with asynchronous JavaScript.
-
-- Explain and implement URL query string parameters.
-
-
-
-
-
-
-
-
-
-
+- Implement separation of concerns for routing.
