@@ -5,7 +5,7 @@ const util = require('util');
 
 const uuid = require('uuid');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3005;
 
 const app = express();
 
@@ -40,6 +40,7 @@ const readFromFile = util.promisify(fs.readFile);
   });
 };
 
+
 /**
  *  Function to write data to the JSON file given a destination and some content
  *  @param {string} destination The file you want to write to.
@@ -51,6 +52,24 @@ const readFromFile = util.promisify(fs.readFile);
    err ? console.error(err) : console.info(`\nData written to ${destination}`)
  );
 
+ /**
+ *  Function to read data from a given a file and append some content
+ *  @param {object} content The content you want to append to the file.
+ *  @param {string} file The path to the file you want to save to.
+ *  @returns {void} Nothing
+ */
+  const deleteKey = (id, file) => {
+    fs.readFile(file, 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+      } else {
+        let parsedData = JSON.parse(data);
+        parsedData = parsedData.filter(note => note.id !== id);
+        writeToFile(file, parsedData);
+      }
+    });
+  };
+
 ////////////////
 // Routes
 ////////////////
@@ -60,7 +79,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'))
 });
 
-// GET Route for *
+// GET Route for ?notes
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 });
@@ -81,7 +100,7 @@ app.post('/api/notes', (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: uuid.v4(),
+      id: uuid.v4(),
     };
 
     readAndAppend(newNote, './db/db.json');
@@ -91,4 +110,18 @@ app.post('/api/notes', (req, res) => {
   }
 });
 
+// GET Route for Specific note by note ID
+app.delete('/api/notes/:id', (req, res) => {
+  console.info(`${req.method} request received for notes`);
+  console.log(req.params);
+  deleteKey(req.params.id,'./db/db.json');
+  res.json(`Note deleted successfully`);
+});
+
+
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
+
+// TODO: 
+
+// 2. Check if heroku needed
+// 3. Delete
