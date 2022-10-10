@@ -49,12 +49,12 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ```
 
 ### Video
-[Demo Video]()
+[Demo Video](https://drive.google.com/file/d/1wsZVX8CqYoMSWGU2S0y-5pWP7mwuj2TS/view?usp=sharing)
 
 ### Links
 
 - [Github Repository](https://github.com/rmdn321/11-Note-Taker)
-- [Heroku Link]()
+- [Heroku Link](https://notetakerapphw11.herokuapp.com/)
 
 ## My process
 
